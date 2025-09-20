@@ -5,4 +5,5 @@ class ApiEndpoints{
   static final dashboard = '/dashboard';
   static final allDefaultCategories = '/getAllMainLocations';
   static final allCustomCategories = '/getAllLocation';
+  static final addCategory = '/uploadLocation';
 }
