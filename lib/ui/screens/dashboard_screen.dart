@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../framework/providers/dashboard_provider.dart';
+import 'categories_screen/all_categories_screen.dart';
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -25,7 +26,14 @@ class DashboardScreen extends ConsumerWidget {
                 ),
                 SizedBox(height: 20),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AllCategoriesScreen(),
+                      ),
+                    );
+                  },
                   child: Card(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

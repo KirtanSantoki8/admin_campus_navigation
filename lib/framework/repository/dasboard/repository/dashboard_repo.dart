@@ -15,7 +15,6 @@ class DashboardRepo implements DashboardContract{
       var response = await dioClient.get(ApiEndpoints.dashboard);
 
       if(response.statusCode == 200){
-        print(DashboardModel.fromJson(response.data));
         return DashboardModel.fromJson(response.data);
       }else{
         throw Exception('Something went wrong');
