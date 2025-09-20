@@ -1,5 +1,5 @@
 import 'package:admin_campus_navigation/framework/providers/bottom_navigation_provider.dart';
-import 'package:admin_campus_navigation/ui/screens/add_category_screen.dart';
+import 'package:admin_campus_navigation/ui/screens/add_edit_category_screen.dart';
 import 'package:admin_campus_navigation/ui/screens/add_location_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,7 +13,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     List<Widget> pages = [
       DashboardScreen(),
-      AddCategoryScreen(),
+      AddEditCategoryScreen(),
       AddLocationScreen(),
     ];
     List<String> titles = ['Dashboard', 'Add Category', 'Add Location'];
