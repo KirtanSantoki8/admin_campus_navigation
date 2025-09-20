@@ -1,6 +1,5 @@
 import 'package:admin_campus_navigation/framework/repository/all_categories/contract/all_categories_contract.dart';
 import 'package:admin_campus_navigation/framework/repository/all_categories/model/all_categories_model.dart';
-import 'package:admin_campus_navigation/framework/repository/all_categories/model/all_categories_no_data_model.dart';
 import 'package:dio/dio.dart';
 
 import '../../../providers/network/dio/dio_client.dart';
@@ -32,7 +31,7 @@ class AllCategoriesRepo implements AllCategoriesContract {
       var response = await dioClient.get(ApiEndpoints.allCustomCategories);
 
       if (response.statusCode == 200) {
-        if (AllCategoriesNoDataModel.fromJson(response.data).status == 400) {
+        if (AllCategoriesModel.fromJson(response.data).status == 400) {
           return AllCategoriesModel.fromJson({'status': 400, 'message': []});
         } else {
           return AllCategoriesModel.fromJson(response.data);

@@ -72,7 +72,7 @@ class AllCategoriesScreen extends ConsumerWidget {
                                           fit: BoxFit.contain,
                                         ),
                                   Text(
-                                    data.message![index][1],
+                                    data.messageList![index][1],
                                     textAlign: TextAlign.center,
                                   ),
                                 ],
@@ -102,7 +102,7 @@ class AllCategoriesScreen extends ConsumerWidget {
                           crossAxisCount: 3,
                           childAspectRatio: 0.9,
                         ),
-                        itemCount: (data1.message?.length),
+                        itemCount: (data1.messageList?.length),
                         itemBuilder: (context, index) {
                           return Card(
                             child: LayoutBuilder(
@@ -116,13 +116,13 @@ class AllCategoriesScreen extends ConsumerWidget {
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
                                         CachedNetworkImage(
-                                          imageUrl: data1.message![index][2],
+                                          imageUrl: data1.messageList![index][2],
                                           height: constraints.maxHeight * 0.6,
                                           width: constraints.maxWidth * 0.8,
                                           fit: BoxFit.contain,
                                         ),
                                         Text(
-                                          data1.message![index][3],
+                                          data1.messageList![index][3],
                                           textAlign: TextAlign.center,
                                         ),
                                       ],
