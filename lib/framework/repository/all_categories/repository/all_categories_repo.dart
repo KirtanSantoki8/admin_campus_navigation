@@ -6,52 +6,44 @@ import 'package:dio/dio.dart';
 import '../../../providers/network/dio/dio_client.dart';
 import '../../../providers/network/endpoints/api_endpoints.dart';
 
-class AllCategoriesRepo implements AllCategoriesContract{
-
+class AllCategoriesRepo implements AllCategoriesContract {
   DioClient dioClient = DioClient();
 
   @override
   Future<AllCategoriesModel> getAllDefaultCategories() async {
-    try{
+    try {
       var response = await dioClient.get(ApiEndpoints.allDefaultCategories);
 
-      if(response.statusCode == 200){
+      if (response.statusCode == 200) {
         return AllCategoriesModel.fromJson(response.data);
-      }else{
+      } else {
         throw Exception('Something went wrong');
       }
-    }
-    on DioException catch (e){
+    } on DioException catch (e) {
       throw Exception(e.message);
-    }
-    catch(e){
+    } catch (e) {
       throw Exception(e.toString());
     }
   }
 
   @override
   Future<AllCategoriesModel> getAllCustomCategories() async {
-    try{
-      print('getAllCustomCategories');
+    try {
       var response = await dioClient.get(ApiEndpoints.allCustomCategories);
 
-      if(response.statusCode == 200){
-        if(AllCategoriesModel.fromJson(response.data).status == 400){
-          throw Exception(AllCategoriesNoDataModel.fromJson(response.data).message);
-        }else{
-          print(response.data);
+      if (response.statusCode == 200) {
+        if (AllCategoriesNoDataModel.fromJson(response.data).status == 400) {
+          return AllCategoriesModel.fromJson({'status': 400, 'message': []});
+        } else {
           return AllCategoriesModel.fromJson(response.data);
         }
-      }else{
+      } else {
         throw Exception('Something went wrong');
       }
-    }
-    on DioException catch (e){
+    } on DioException catch (e) {
       throw Exception(e.message);
-    }
-    catch(e){
+    } catch (e) {
       throw Exception(e.toString());
     }
   }
-
 }

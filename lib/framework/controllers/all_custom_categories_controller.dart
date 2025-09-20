@@ -8,7 +8,6 @@ import '../repository/all_categories/repository/all_categories_repo.dart';
 class AllCustomCategoriesController extends AsyncNotifier<AllCategoriesModel> {
   @override
   FutureOr<AllCategoriesModel> build() async {
-    print('build');
     var data = await AllCategoriesRepo().getAllCustomCategories();
     return data;
   }

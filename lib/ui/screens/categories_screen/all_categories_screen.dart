@@ -104,8 +104,6 @@ class AllCategoriesScreen extends ConsumerWidget {
                         ),
                         itemCount: (data1.message?.length),
                         itemBuilder: (context, index) {
-                          print('length');
-                          print(data1.message?.length);
                           return Card(
                             child: LayoutBuilder(
                               builder:
