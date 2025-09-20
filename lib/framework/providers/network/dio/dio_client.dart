@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 
 class DioClient{
 
-  final dio = Dio(BaseOptions(baseUrl: ApiEndpoints.baseUrl));
+  final dio = Dio(BaseOptions(baseUrl: ApiEndpoints.baseUrl,connectTimeout: Duration(seconds: 15),receiveTimeout: Duration(seconds: 15),sendTimeout: Duration(seconds: 15)));
 
   DioClient(){
     dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
