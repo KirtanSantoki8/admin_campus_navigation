@@ -12,4 +12,8 @@ class DioClient{
   Future<Response> get(String url) async{
     return await dio.get(url);
   }
+
+  Future<Response> postFormData(String url, Map<String, dynamic> data) async{
+    return await dio.post(url, data: FormData.fromMap(data));
+  }
 }
